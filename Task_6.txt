@@ -1,0 +1,143 @@
+//1.creation of a Movie class and a method to get PG rated movies
+class Movie{
+    constructor(title,studio,rating="PG"){
+        this.title=title;
+        this.studio=studio;
+        this.rating=rating;
+
+    }
+    getPG(array){
+        for(let element of array){
+            if(element.rating == "PG"){
+                console.log(element.title);
+            }
+        }
+    }
+       
+
+}
+
+let film=new Movie("Casino Royale","Eon Productions","PG13");
+let film1=new Movie("Beast","Sun","PG");
+let film2=new Movie("Master","XB","R");
+let film3=new Movie("Gray Man","Russo brothers");
+let array=[film,film1,film2,film3];
+//console.log(array);
+film2.getPG(array);
+
+
+
+//2.UML diagram to code-circle
+class circle{
+    constructor(radius=1,color="red"){
+        this.radius = radius;
+        this.color = color;
+    }
+
+    Circle(){
+        return `radius: ${this.radius} color: ${this.color}`;
+    }
+
+    Circle(radius){
+        this.radius=radius;
+        return `radius: ${this.radius}`;
+    }
+
+    Circle(radius,color){
+        this.radius=radius;
+        this.color=color;
+        return `radius: ${this.radius} color: ${this.color}`;
+    }
+
+    setRadius(radius=12){
+        this.radius=radius;
+    }
+
+    getRadius(){
+       return `radius: ${this.radius}`;
+    }
+
+    getColor(){
+        return `color: ${this.color}`;
+    }
+
+    setColor(color="purple"){
+        this.color=color;
+    } 
+
+    toString(radius=this.radius){
+        this.radius=radius;
+        return `radius: ${(this.radius).toString()+(this.color).toString()}`;
+    }
+
+    getArea(){
+        return `Area: ${(Math.PI)*this.radius*this.radius}`;
+    }
+
+    getCircumference(){
+        return `Circumference: ${2*(Math.PI)*this.radius}`;
+    }
+}
+
+let obj=new circle(10,"black");
+console.log(obj);                      
+console.log(obj.Circle());             //undefined as method 1 is overridden by method 2 and 3        
+console.log(obj.Circle(5));            //color is undefined as method 2 is overridden by method  3
+console.log(obj.Circle(6,"yellow"));   //executes fine here
+obj.setRadius(12);                     //radius is set to 12
+console.log(obj.getRadius());          //the radius set is accessed by getRadius()
+console.log(obj.getColor());           //gets color
+obj.setColor();                        //color has been set
+console.log(obj.toString());           
+console.log(obj.getArea());
+console.log(obj.getCircumference());
+
+//output:
+/*
+circle { radius: 10, color: 'black' }
+radius: undefined color: undefined
+radius: 5 color: undefined
+radius: 6 color: yellow
+radius: 12
+color: yellow
+radius: 12purple
+Area: 452.3893421169302
+Circumference: 75.39822368615503
+*/
+
+//3.class person to hold all details
+class person{
+    constructor(firstName,lastName,age,gender,dob,contactInfo,qualification){
+        this.firstName=firstName;
+        this.lastName=lastName;
+        this.age=age;
+        this.gender=gender;
+        this.dob=dob;
+        this.contactInfo=contactInfo;
+        this.qualification=qualification;
+    }
+
+}
+let objper=new person("John","Cena",34,"M","Jan 10 1987","johncena@gmail","Wrestler");
+
+//4.Uber price calculation
+//price per km=12
+class price{
+    constructor(km){
+        this.km = km;
+        this.price=km*12;
+    }
+
+    getprice(){
+        return `Fare for the ride is Rs.${this.price}`
+    }
+
+}
+
+//let obj=new price();
+
+let obj1=new price(5);
+console.log(obj1.getprice()); 
+
+//Output
+//Fare for the ride is Rs.60
